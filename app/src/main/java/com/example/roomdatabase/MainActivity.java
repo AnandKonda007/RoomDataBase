@@ -20,7 +20,7 @@ import com.example.roomdatabase.Model.StudentFamilyDetails;
 public class MainActivity extends AppCompatActivity {
     DataBase dataBase;
     EditText name, fatherName, motherName, phoneNumber;
-    Button submit,viewUsers;
+    Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         motherName = findViewById(R.id.mother_Name);
         phoneNumber = findViewById(R.id.phone_number);
         submit = findViewById(R.id.submit);
-        viewUsers=findViewById(R.id.viewusers);
+        //viewUsers=findViewById(R.id.viewusers);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,16 +66,12 @@ public class MainActivity extends AppCompatActivity {
                     motherName.getText().clear();
                     phoneNumber.getText().clear();
                     Toast.makeText(MainActivity.this, "saved Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this,MainActivity2.class));
+
 
 
 
                 }
-            }
-        });
-        viewUsers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               startActivity(new Intent(MainActivity.this,MainActivity2.class));
             }
         });
 

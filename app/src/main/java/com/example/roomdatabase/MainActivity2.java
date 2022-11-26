@@ -7,12 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.roomdatabase.Adapter.StudentFamilyDetailsAdapter;
 import com.example.roomdatabase.Database.DataBase;
 import com.example.roomdatabase.Database.DetailsDao;
 import com.example.roomdatabase.Model.StudentFamilyDetails;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -22,6 +25,7 @@ public class MainActivity2 extends AppCompatActivity {
     DetailsDao detailsDao;
     List<StudentFamilyDetails> studentFamilyDetails;
     RecyclerView recyclerView;
+    FloatingActionButton floatingActionButton;
 
     @Override
 
@@ -42,5 +46,12 @@ public class MainActivity2 extends AppCompatActivity {
             StudentFamilyDetailsAdapter studentFamilyDetailsAdapter = new StudentFamilyDetailsAdapter(MainActivity2.this, studentFamilyDetails);
             recyclerView.setAdapter(studentFamilyDetailsAdapter);
         }
+        floatingActionButton=findViewById(R.id.floatingActionButton);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this,MainActivity.class));
+            }
+        });
     }
 }
