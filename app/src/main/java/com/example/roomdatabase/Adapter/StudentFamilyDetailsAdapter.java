@@ -79,7 +79,11 @@ public class StudentFamilyDetailsAdapter extends RecyclerView.Adapter<StudentFam
                                 detailsDao = dataBase.detailsDao();
                                 detailsDao.deleteDetails(studentFamilyDetails.remove(position));
                                 notifyDataSetChanged();
+                                Toast.makeText(context, "Student Details Deleted Successfully", Toast.LENGTH_SHORT).show();
+
+
                             }
+
                         })
                         .setNegativeButton("No", null)
                         .create();
