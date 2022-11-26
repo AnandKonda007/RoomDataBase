@@ -3,6 +3,7 @@ package com.example.roomdatabase.Adapter;
 import static com.example.roomdatabase.Database.DataCommon.Db_Name;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
@@ -49,41 +51,33 @@ public class StudentFamilyDetailsAdapter extends RecyclerView.Adapter<StudentFam
         holder.fathername.setText(studentFamilyDetails.get(position).getFatherName());
         holder.mothername.setText(studentFamilyDetails.get(position).getMotherName());
         holder.phonenumber.setText(studentFamilyDetails.get(position).getPhoneNumber());
-        /*holder.edit.setOnClickListener(new View.OnClickListener() {
+        holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dataBase = Room.databaseBuilder(holder.name.getContext(), DataBase.class, Db_Name).allowMainThreadQueries().build();
-
-
-
-
-
-
-
-
-                Intent intent = new Intent(new Intent(holder.edit.getContext(), MainActivity.class));
-                intent.putExtra("name",studentFamilyDetails.get(position).getName());
-                intent.putExtra("fathername", studentFamilyDetails.get(position).getFatherName());
-                intent.putExtra("mothername", studentFamilyDetails.get(position).getMotherName());
-                intent.putExtra("phonenumbeer", studentFamilyDetails.get(position).getPhoneNumber());
-
-                holder.edit.getContext().startActivity(intent);
 
 
             }
-        });*/
+        });
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dataBase = Room.databaseBuilder(holder.name.getContext(), DataBase.class, Db_Name).allowMainThreadQueries().build();
-                detailsDao = dataBase.detailsDao();
-                studentFamilyDetails = detailsDao.fetchAllStudentDetails();
-                detailsDao.deleteDetails(studentFamilyDetails.remove(position));
-                notifyDataSetChanged();
-
-
-
-
+                AlertDialog dialog = new AlertDialog.Builder(context)
+                        .setTitle("Delete User")
+                        .setMessage("Are you sure to delete this user?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dataBase = Room.databaseBuilder(holder.name.getContext(), DataBase.class, Db_Name).allowMainThreadQueries().build();
+                                detailsDao = dataBase.detailsDao();
+                                studentFamilyDetails = detailsDao.fetchAllStudentDetails();
+                                detailsDao.deleteDetails(studentFamilyDetails.remove(position));
+                                notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .create();
+                dialog.setCancelable(false);
+                dialog.show();
             }
         });
 
