@@ -20,7 +20,7 @@ import com.example.roomdatabase.Model.StudentFamilyDetails;
 public class MainActivity extends AppCompatActivity {
     DataBase dataBase;
     EditText name, fatherName, motherName, phoneNumber;
-    Button submit, viewUsers;
+    Button submit,viewUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void actions() {
-        dataBase = Room.databaseBuilder(this, DataBase.class, Db_Name).allowMainThreadQueries().build();
+        dataBase = Room.databaseBuilder(this, DataBase.class,Db_Name).allowMainThreadQueries().build();
         name = findViewById(R.id.student_Name);
         fatherName = findViewById(R.id.father_Name);
         motherName = findViewById(R.id.motherName);
         phoneNumber = findViewById(R.id.phone_number);
         submit = findViewById(R.id.submit);
-        viewUsers = findViewById(R.id.viewusers);
+        viewUsers=findViewById(R.id.viewusers);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,19 +54,19 @@ public class MainActivity extends AppCompatActivity {
                     phoneNumber.setError("This Field  is required");
                     Toast.makeText(MainActivity.this, "Please Enter Your Phone Number", Toast.LENGTH_SHORT).show();
                 } else {
-                    DetailsDao detailsDao = dataBase.detailsDao();
-                    StudentFamilyDetails studentFamilyDetails = new StudentFamilyDetails();
+                    DetailsDao detailsDao=dataBase.detailsDao();
+                    StudentFamilyDetails studentFamilyDetails=new StudentFamilyDetails();
                     studentFamilyDetails.setName(name.getText().toString());
                     studentFamilyDetails.setFatherName(fatherName.getText().toString());
                     studentFamilyDetails.setMotherName(motherName.getText().toString());
                     studentFamilyDetails.setPhoneNumber(phoneNumber.getText().toString());
-                    detailsDao.insertDetais(studentFamilyDetails);
+                    detailsDao.insertDetails(studentFamilyDetails);
                     name.getText().clear();
                     fatherName.getText().clear();
                     motherName.getText().clear();
                     phoneNumber.getText().clear();
-
                     Toast.makeText(MainActivity.this, "saved Successfully", Toast.LENGTH_SHORT).show();
+
 
 
                 }
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         viewUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MainActivity2.class));
+               startActivity(new Intent(MainActivity.this,MainActivity2.class));
             }
         });
 
