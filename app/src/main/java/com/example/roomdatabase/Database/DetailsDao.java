@@ -20,8 +20,10 @@ public interface DetailsDao {
     @Delete
     void deleteDetails(StudentFamilyDetails studentFamilyDetails);
 
-    @Update
-    void updateDetails(StudentFamilyDetails studentFamilyDetails);
+
+    @Query("Update Studentfamilydetails SET Name=:name,FatherName=:fathername,MotherName=:mothername,PhoneNumber=:phoneno WHERE id=:id")
+    void updateDetails(int id,String name,String fathername,String mothername,String phoneno);
+
 
 
 

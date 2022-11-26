@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         dataBase = Room.databaseBuilder(this, DataBase.class,Db_Name).allowMainThreadQueries().build();
         name = findViewById(R.id.student_Name);
         fatherName = findViewById(R.id.father_Name);
-        motherName = findViewById(R.id.motherName);
+        motherName = findViewById(R.id.mother_Name);
         phoneNumber = findViewById(R.id.phone_number);
         submit = findViewById(R.id.submit);
         viewUsers=findViewById(R.id.viewusers);

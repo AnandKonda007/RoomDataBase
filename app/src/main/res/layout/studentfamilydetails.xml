@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/name2"
+            android:id="@+id/student_Name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -34,7 +34,7 @@
             android:textSize="25dp" />
 
         <TextView
-            android:id="@+id/motherName2"
+            android:id="@+id/mother_Name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

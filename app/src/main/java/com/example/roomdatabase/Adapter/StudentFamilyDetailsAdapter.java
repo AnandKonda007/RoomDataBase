@@ -22,6 +22,7 @@ import com.example.roomdatabase.MainActivity;
 import com.example.roomdatabase.MainActivity2;
 import com.example.roomdatabase.Model.StudentFamilyDetails;
 import com.example.roomdatabase.R;
+import com.example.roomdatabase.UpdateDetails;
 
 import java.util.List;
 
@@ -54,6 +55,13 @@ public class StudentFamilyDetailsAdapter extends RecyclerView.Adapter<StudentFam
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent=new Intent(new Intent(holder.edit.getContext(),UpdateDetails.class));
+                intent.putExtra("id",String.valueOf(studentFamilyDetails.get(position).getId()));
+                intent.putExtra("name",studentFamilyDetails.get(position).getName());
+                intent.putExtra("fathername",studentFamilyDetails.get(position).getFatherName());
+                intent.putExtra("mothername",studentFamilyDetails.get(position).getMotherName());
+                intent.putExtra("phoneno",studentFamilyDetails.get(position).getPhoneNumber());
+                holder.edit.getContext().startActivity(intent);
 
 
             }
@@ -69,7 +77,6 @@ public class StudentFamilyDetailsAdapter extends RecyclerView.Adapter<StudentFam
                             public void onClick(DialogInterface dialog, int which) {
                                 dataBase = Room.databaseBuilder(holder.name.getContext(), DataBase.class, Db_Name).allowMainThreadQueries().build();
                                 detailsDao = dataBase.detailsDao();
-                                studentFamilyDetails = detailsDao.fetchAllStudentDetails();
                                 detailsDao.deleteDetails(studentFamilyDetails.remove(position));
                                 notifyDataSetChanged();
                             }
@@ -96,9 +103,9 @@ public class StudentFamilyDetailsAdapter extends RecyclerView.Adapter<StudentFam
 
         public ViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.name2);
+            name = itemView.findViewById(R.id.student_Name2);
             fathername = itemView.findViewById(R.id.father_Name2);
-            mothername = itemView.findViewById(R.id.motherName2);
+            mothername = itemView.findViewById(R.id.mother_Name2);
             phonenumber = itemView.findViewById(R.id.phone_number2);
             edit = itemView.findViewById(R.id.edit);
             delete = itemView.findViewById(R.id.delete);

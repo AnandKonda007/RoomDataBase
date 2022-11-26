@@ -8,10 +8,10 @@
     android:background="@drawable/background">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student Information"
+        android:text="Update Student Information"
         android:textColor="@color/white"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.114" />
 
     <EditText
-        android:id="@+id/student_Name"
+        android:id="@+id/student_Name3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="20"
@@ -37,11 +37,11 @@
         android:paddingStart="20dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/title2"
         tools:layout_editor_absoluteX="16dp" />
 
     <EditText
-        android:id="@+id/father_Name"
+        android:id="@+id/father_Name3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="20"
@@ -56,11 +56,11 @@
         android:paddingStart="20dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/student_Name"
+        app:layout_constraintTop_toBottomOf="@+id/student_Name3"
         tools:layout_editor_absoluteX="25dp" />
 
     <EditText
-        android:id="@+id/mother_Name"
+        android:id="@+id/mother_Name3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="20"
@@ -75,11 +75,11 @@
         android:paddingStart="20dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/father_Name"
+        app:layout_constraintTop_toBottomOf="@+id/father_Name3"
         tools:layout_editor_absoluteX="51dp" />
 
     <EditText
-        android:id="@+id/phone_number"
+        android:id="@+id/phone_number3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -94,33 +94,20 @@
         android:paddingStart="20dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/mother_Name"
+        app:layout_constraintTop_toBottomOf="@+id/mother_Name3"
         tools:layout_editor_absoluteX="82dp" />
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/update"
         android:layout_width="100dp"
         android:layout_height="60dp"
+        android:backgroundTint="#D7BDE2"
+        android:text="Update"
         android:layout_marginTop="40dp"
-        android:backgroundTint="#D7BDE2"
-        android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number" />
-
-    <Button
-        android:id="@+id/viewusers"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="100dp"
-        android:backgroundTint="#D7BDE2"
-        android:text="View Saved"
-        app:layout_constraintBottom_toBottomOf="@+id/submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/submit"
-        app:layout_constraintTop_toTopOf="@+id/submit"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_number3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
