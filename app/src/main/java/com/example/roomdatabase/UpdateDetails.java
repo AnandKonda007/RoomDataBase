@@ -45,10 +45,14 @@ public class UpdateDetails extends AppCompatActivity {
                 DataBase dataBase = Room.databaseBuilder(getApplicationContext(), DataBase.class, Db_Name).allowMainThreadQueries().build();
                  DetailsDao detailsDao = dataBase.detailsDao();
                 detailsDao.updateDetails(id,name.getText().toString(),fathername.getText().toString(),mothername.getText().toString(),phonenumber.getText().toString());
-                startActivity(new Intent(getApplicationContext(),MainActivity2.class));
+                startActivity(new Intent(getApplicationContext(), Home.class));
                 finish();
             }
         });
 
+    }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(UpdateDetails.this,Home.class));
     }
 }

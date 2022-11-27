@@ -19,7 +19,6 @@
             android:id="@+id/student_Name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:hint="name"
             android:paddingStart="20dp"
             android:textSize="25dp" />
@@ -28,7 +27,6 @@
             android:id="@+id/father_Name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:hint="FatherName"
             android:paddingStart="20dp"
             android:textSize="25dp" />
@@ -37,7 +35,6 @@
             android:id="@+id/mother_Name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:hint="MotherName"
             android:paddingStart="20dp"
             android:textSize="25dp" />
@@ -46,7 +43,6 @@
             android:id="@+id/phone_number2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:hint="Phone Number"
             android:paddingStart="20dp"
             android:textSize="25dp" />

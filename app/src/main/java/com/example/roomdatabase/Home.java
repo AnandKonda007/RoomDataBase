@@ -20,7 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 
-public class MainActivity2 extends AppCompatActivity {
+public class Home extends AppCompatActivity {
     DataBase dataBase;
     DetailsDao detailsDao;
     List<StudentFamilyDetails> studentFamilyDetails;
@@ -31,7 +31,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_home);
         actions();
 
     }
@@ -41,17 +41,22 @@ public class MainActivity2 extends AppCompatActivity {
         detailsDao = dataBase.detailsDao();
         studentFamilyDetails = detailsDao.fetchAllStudentDetails();
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity2.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(Home.this));
         if (studentFamilyDetails.size() > 0) {
-            StudentFamilyDetailsAdapter studentFamilyDetailsAdapter = new StudentFamilyDetailsAdapter(MainActivity2.this, studentFamilyDetails);
+            StudentFamilyDetailsAdapter studentFamilyDetailsAdapter = new StudentFamilyDetailsAdapter(Home.this, studentFamilyDetails);
             recyclerView.setAdapter(studentFamilyDetailsAdapter);
         }
-        floatingActionButton=findViewById(R.id.floatingActionButton);
+        floatingActionButton = findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity2.this,MainActivity.class));
+                startActivity(new Intent(Home.this, MainActivity.class));
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Home.this,MainActivity.class));
     }
 }

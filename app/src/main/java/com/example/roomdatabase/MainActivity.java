@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     motherName.getText().clear();
                     phoneNumber.getText().clear();
                     Toast.makeText(MainActivity.this, "saved Successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this,MainActivity2.class));
+                    startActivity(new Intent(MainActivity.this, Home.class));
 
 
 
@@ -77,10 +77,16 @@ public class MainActivity extends AppCompatActivity {
         viewUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MainActivity2.class));
+                startActivity(new Intent(MainActivity.this, Home.class));
 
             }
         });
 
+    }
+    public void onBackPressed() {
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
     }
 }

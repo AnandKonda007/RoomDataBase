@@ -18,8 +18,7 @@ import androidx.room.Room;
 
 import com.example.roomdatabase.Database.DataBase;
 import com.example.roomdatabase.Database.DetailsDao;
-import com.example.roomdatabase.MainActivity;
-import com.example.roomdatabase.MainActivity2;
+import com.example.roomdatabase.Home;
 import com.example.roomdatabase.Model.StudentFamilyDetails;
 import com.example.roomdatabase.R;
 import com.example.roomdatabase.UpdateDetails;
@@ -32,7 +31,7 @@ public class StudentFamilyDetailsAdapter extends RecyclerView.Adapter<StudentFam
     List<StudentFamilyDetails> studentFamilyDetails;
     Context context;
 
-    public StudentFamilyDetailsAdapter(MainActivity2 mainActivity2, List<StudentFamilyDetails> studentFamilyDetails) {
+    public StudentFamilyDetailsAdapter(Home mainActivity2, List<StudentFamilyDetails> studentFamilyDetails) {
         this.studentFamilyDetails = studentFamilyDetails;
         this.context = mainActivity2;
 
